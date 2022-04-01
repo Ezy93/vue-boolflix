@@ -2,16 +2,16 @@
     <main class="d-flex flex-wrap pt-3">
         <ul v-for="(element) in filmsArray" :key="element.id" class="mx-2 p-2">
             <li>
-                {{element.title}}
+                Titolo: {{element.title}}
             </li>
             <li>
-                {{element.original_title}}
+                Titolo originale: {{element.original_title}}
+            </li>
+            <li><!-- trovare soluzione per prendere le immagini -->
+                Lingua: <img :src="require(`${element.original_language}.png}`)" alt="">
             </li>
             <li>
-                {{element.original_language}}
-            </li>
-            <li>
-                {{element.vote_average}}
+                Voto:{{element.vote_average}}
             </li>
         </ul>
     </main>
