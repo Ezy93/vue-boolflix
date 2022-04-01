@@ -25,13 +25,18 @@ export default {
         
         
         
+        
     },
     methods:{
         stringModifier(){
             console.log(this.searchedString.split(" "))
             this.queryString =  this.searchedString.split(" ").join("+")
             console.log(this.queryString)
+            
+            this.$emit('search', this.queryString)
+            this.searchedString = ""
         },
+        
         
         
     },
