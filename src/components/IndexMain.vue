@@ -1,6 +1,6 @@
 <template>
     <main>
-
+        
     </main>
 </template>
 
@@ -9,6 +9,9 @@
 
 export default {
     name: "IndexMain",
+    props: {
+        'filmsArray': Array
+    },
     data: function(){
         return{
             filmsList: null,
