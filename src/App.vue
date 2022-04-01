@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <IndexHeader @search="searchFilms"/>
-    <IndexMain/>
+    <IndexMain
+    :filmsArray ="matchedFilms"
+    />
   </div>
 </template>
 

@@ -2,7 +2,7 @@
     <header>
         <div class="row">
             <div class="col-12">
-                <input type="text" v-model="searchedString">
+                <input type="text" v-model="searchedString" @keyup.enter="stringModifier">
                 
                 <div class="btn btn-primary" @click="stringModifier">
                     cerca

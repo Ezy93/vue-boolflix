@@ -1,6 +1,19 @@
 <template>
-    <main>
-        
+    <main class="d-flex flex-wrap pt-3">
+        <ul v-for="(element) in filmsArray" :key="element.id" class="mx-2 p-2">
+            <li>
+                {{element.title}}
+            </li>
+            <li>
+                {{element.original_title}}
+            </li>
+            <li>
+                {{element.original_language}}
+            </li>
+            <li>
+                {{element.vote_average}}
+            </li>
+        </ul>
     </main>
 </template>
 
@@ -29,5 +42,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+    ul{
+        border: 2px solid black;
+        list-style-type: none;
+        li{
+            padding: .2rem;
+        }
+    }
 </style>
