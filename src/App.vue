@@ -19,17 +19,20 @@ export default {
   },
   data: function(){
     return{
+      matchedFilms:null,
       
     }
   },
   methods:{
     searchFilms(queryString){
-
+      const self = this
+      
       axios
       .get(`https://api.themoviedb.org/3/search/movie?api_key=276a8d5ac6ab05e1c8488deebdcb905d&language=en-US&query=${queryString}&page=1`)
       .then(function (response){
-        const result = response.data;
-        console.log(result)
+        const result = response.data.results;
+        self.matchedFilms = result;
+        console.log(self.matchedFilms)
       })
 
       
