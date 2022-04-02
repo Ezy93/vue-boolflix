@@ -8,7 +8,7 @@
                 Titolo originale: {{element.original_title}}
             </li>
             <li><!-- trovare soluzione per prendere le immagini -->
-                Lingua: <img :src="require(`${element.original_language}.png}`)" alt="">
+                Lingua: <img :src="require(`@/assets/img/${element.original_language}.png`)" alt="">
             </li>
             <li>
                 Voto:{{element.vote_average}}
