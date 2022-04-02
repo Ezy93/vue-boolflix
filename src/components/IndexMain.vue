@@ -27,8 +27,7 @@ export default {
     },
     data: function(){
         return{
-            filmsList: null,
-            seriesList: null,
+            
         }
     },
     created: function(){
