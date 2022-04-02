@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <IndexHeader @search="searchAll" />
+    <IndexHeader @search="searchFilms" />
     <IndexMain
     :filmsArray ="matchedFilms"
     
@@ -27,35 +27,42 @@ export default {
     }
   },
   methods:{
-    getFilms(queryString){
-      const filmsUrl = `https://api.themoviedb.org/3/search/movie?api_key=276a8d5ac6ab05e1c8488deebdcb905d&language=it-It&query=${queryString}&page=1`
-      return axios.get(filmsUrl) 
-    },
-    getSeries(queryString){
-      const seriesUrl = `https://api.themoviedb.org/3/search/tv?api_key=276a8d5ac6ab05e1c8488deebdcb905d&language=it_IT&query=${queryString}`
-      return axios.get(seriesUrl)
-    },
+    
 
 
-
-    searchAll(queryString){
+    
+    searchFilms(queryString){
       const self=this
       
       axios
-      .all([this.getFilms(queryString),this.getSeries(queryString)])
+      .get(`https://api.themoviedb.org/3/search/movie?api_key=276a8d5ac6ab05e1c8488deebdcb905d&language=it-It&query=${queryString}&page=1`)
       
-      .then(function (responsefilms,responseSeries){
-        const resultFilms = responsefilms.data.results;
-        const resultSeries = responseSeries.data.results;
-        self.matchedFilms = resultFilms;
-        self.matchedSeries = resultSeries
+      .then(function (response){
+        const result = response.data.results;
+        self.matchedFilms = result;
         console.log(self.matchedFilms)
+      })
+      
+      axios.get(`https://api.themoviedb.org/3/search/tv?api_key=276a8d5ac6ab05e1c8488deebdcb905d&language=it_IT&query=${queryString}`)
+      .then(function(response){
+        const result = response.data.results;
+        self.matchedSeries = result;
         console.warn(self.matchedSeries)
       })
 
       
     },
-    
+    /* searchSeries(queryString){
+      const self=this
+      axios
+      .get(`https://api.themoviedb.org/3/search/tv?api_key=276a8d5ac6ab05e1c8488deebdcb905d&language=it_IT&query=${queryString}`)
+      
+      .then(function (response){
+        const result = response.data.results;
+        self.matchedSeries = result;
+        console.warn(self.matchedSeries)
+      })
+    } */
   },
 }
 </script>
