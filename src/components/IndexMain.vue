@@ -1,6 +1,7 @@
 <template>
     <main class="d-flex flex-wrap pt-3">
         <ul v-for="(element) in filmsArray" :key="element.id" class="mx-2 p-2">
+            <h6>film</h6>
             <li>
                 Titolo: {{element.title}}
             </li>
@@ -8,7 +9,22 @@
                 Titolo originale: {{element.original_title}}
             </li>
             <li><!-- trovare soluzione per prendere le immagini -->
-                Lingua: <img :src="require(`@/assets/img/${element.original_language}.png`)" alt="">
+                Lingua: <img :src="require(`@/assets/img/${element.original_language}.png`)" :alt="`${element.original_language}`">
+            </li>
+            <li>
+                Voto:{{element.vote_average}}
+            </li>
+        </ul>
+        <ul v-for="(element) in seriesArray" :key="element.id" class="mx-2 p-2">
+            <h6>serie</h6>
+            <li>
+                Titolo: {{element.name}}
+            </li>
+            <li>
+                Titolo originale: {{element.original_name}}
+            </li>
+            <li><!-- trovare soluzione per prendere le immagini -->
+                Lingua: <img :src="require(`@/assets/img/${element.original_language}.png`)" :alt="`${element.original_language}`">
             </li>
             <li>
                 Voto:{{element.vote_average}}
@@ -23,7 +39,8 @@
 export default {
     name: "IndexMain",
     props: {
-        'filmsArray': Array
+        'filmsArray': Array,
+        'seriesArray': Array,
     },
     data: function(){
         return{
