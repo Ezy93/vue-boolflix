@@ -16,7 +16,7 @@
                 Titolo originale: {{element.original_name}}
             </li>
             <li>
-                Lingua: <img :src="require(`@/assets/img/${element.original_language}.png`)" :alt="`${element.original_language}`">
+                Lingua: <img class="my-flag" :src="`https://www.unknown.nu/flags/images/${element.original_language}-100`" :alt="`${element.original_language}`">
             </li>
             <li>
                 Voto:{{element.vote_average}}
@@ -55,7 +55,11 @@ div{
             width: calc(100% / 5 - 1rem);
             li{
                 padding: .2rem;
-
+                img.my-flag{
+                    width: 24px;
+                    height: 24px;
+                    object-fit: contain;
+                }
                 img.poster{
                     width: 100%;
                 }
