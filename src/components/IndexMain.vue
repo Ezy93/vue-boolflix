@@ -8,7 +8,12 @@
         :films ="filmsArray"
         :series ="seriesArray"
         />
-
+        
+        <div class="container">
+            <div class="mx-2">
+                {{zeroResults()}}
+            </div>
+        </div>
     </main>
 </template>
 
@@ -35,7 +40,15 @@ export default {
         
     },
     methods:{
-        
+        zeroResults(){
+            if(this.seriesArray.length === 0 && this.filmsArray.length === 0 ){
+                return "la tua ricerca non ha prodotto risultati ne tra le serie tv ne tra i films"
+            }else if(this.filmsArray.length === 0){
+                return "la tua ricerca non ha prodotto risultati tra i films"
+            }else if(this.seriesArray.length === 0){
+                return "la tua ricerca non ha prodotto risultati tra le serie tv"
+            }
+        }
     },
 }
 

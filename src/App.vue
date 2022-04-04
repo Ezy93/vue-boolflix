@@ -42,6 +42,7 @@ export default {
         const result = response.data.results;
         self.matchedFilms = result;
         console.log(self.matchedFilms)
+        
       })
 
       axios.get(`https://api.themoviedb.org/3/search/tv?api_key=276a8d5ac6ab05e1c8488deebdcb905d&language=it_IT&query=${queryString}`)

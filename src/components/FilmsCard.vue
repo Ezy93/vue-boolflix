@@ -21,7 +21,7 @@
                 <div v-if="(newVoteRange(element.vote_average) < 0)">
                     {{newVoteRange(element.vote_average)}} 
                 </div>
-                <div v-if="(newVoteRange(element.vote_average) > 0)">
+                <div v-if="(newVoteRange(element.vote_average) >= 0)">
                     vote:
                 </div>
                 <div class="ms-1">
