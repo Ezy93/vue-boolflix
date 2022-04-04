@@ -2,6 +2,7 @@
     <header>
         <div class="row">
             <div class="col-12">
+                <!-- //! RICORDARSI DELL'ERRORE CHE DA QUANDO SI PROVA A FARE UNA RICERCA CON IMPUT VUOTO -->
                 <input type="text" v-model="searchedString" @keyup.enter="stringModifier">
                 
                 <div class="btn btn-primary" @click="stringModifier">

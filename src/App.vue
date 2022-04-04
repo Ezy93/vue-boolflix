@@ -36,7 +36,7 @@ export default {
       const self=this
       
       axios
-      .get(`https://api.themoviedb.org/3/search/movie?api_key=276a8d5ac6ab05e1c8488deebdcb905d&language=it-It&query=${queryString}&page=1`)
+      .get(`https://api.themoviedb.org/3/search/movie?api_key=276a8d5ac6ab05e1c8488deebdcb905d&language=it-It&query=${queryString}`)
       
       .then(function (response){
         const result = response.data.results;

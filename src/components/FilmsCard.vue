@@ -1,5 +1,5 @@
 <template>
-    <div class="d-flex flex-wrap container-fluid">
+    <div class="d-flex flex-wrap container">
         <ul v-for="(element) in films" :key="element.id" class="mx-2 p-2">
             <li>
                 <h6 class="bg-danger p-1">film</h6>
@@ -17,8 +17,20 @@
             <li>
                 Lingua: <img class="my-flag" :src="`https://www.unknown.nu/flags/images/${element.original_language}-100`" :alt="`${element.original_language}`">
             </li>
-            <li >
-                {{element.vote_average}}
+            <li class="d-flex align-items-center">
+                <div v-if="(newVoteRange(element.vote_average) < 0)">
+                    {{newVoteRange(element.vote_average)}} 
+                </div>
+                <div v-if="(newVoteRange(element.vote_average) > 0)">
+                    vote:
+                </div>
+                <div class="ms-1">
+                    <font-awesome-icon icon="fa-solid fa-star"  :class="{active: (newVoteRange(element.vote_average) > 0)}"/>
+                    <font-awesome-icon icon="fa-solid fa-star"  :class="{active: (newVoteRange(element.vote_average) > 1)}"/>
+                    <font-awesome-icon icon="fa-solid fa-star"  :class="{active: (newVoteRange(element.vote_average) > 2)}"/>
+                    <font-awesome-icon icon="fa-solid fa-star"  :class="{active: (newVoteRange(element.vote_average) > 3)}"/>
+                    <font-awesome-icon icon="fa-solid fa-star"  :class="{active: (newVoteRange(element.vote_average) > 4)}"/>
+                </div>
             </li>
         </ul>
         
@@ -26,6 +38,7 @@
 </template>
 
 <script>
+
 export default {
     name: "MainCard",
     props: {
@@ -43,7 +56,11 @@ export default {
     computed:{
         },
     methods:{
-        
+        newVoteRange(star){
+            return Math.ceil(star / 2)
+            
+            
+        },
 
         
         
@@ -69,6 +86,9 @@ div{
                     width: 100%;
                 }
             }
+        }
+        .active{
+            color: #ffbd00;
         }
 }
 </style>

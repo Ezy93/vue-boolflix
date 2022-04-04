@@ -1,5 +1,5 @@
 <template>
-    <div class="d-flex flex-wrap container-fluid">
+    <div class="d-flex flex-wrap container">
         
         <ul v-for="(element) in series" :key="element.id" class="mx-2 p-2">
             <li>
@@ -19,7 +19,7 @@
                 Lingua: <img class="my-flag" :src="`https://www.unknown.nu/flags/images/${element.original_language}-100`" :alt="`${element.original_language}`">
             </li>
             <li>
-                Voto:{{element.vote_average}}
+                voto: {{newVoteRange(element.vote_average)}}
             </li>
         </ul>
     </div>
@@ -41,7 +41,9 @@ export default {
         
     },
     methods:{
-        
+        newVoteRange(star){
+            return Math.ceil(star / 2)
+        },
     },
 }
 </script>
