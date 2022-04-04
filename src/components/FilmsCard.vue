@@ -1,6 +1,19 @@
 <template>
     <div class="d-flex flex-wrap container">
-        <ul v-for="(element) in films" :key="element.id" class="mx-2 p-2">
+        <div v-for="(element) in films" :key="element.id" class="my-card mx-2 ">
+            <img class="poster img-fluid " v-if="(element.backdrop_path !== null)" :src="`https://image.tmdb.org/t/p/w342${element.backdrop_path}`" :alt="element.title">
+            <p v-else class="bg-dark h-100 text-white py-5 text-center">poster non disponibile</p>
+            <div class="my-description">
+                <div>
+                    <!-- finire di sistemare le card in ogni div e come se fossero i vecchi li -->
+                </div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <!-- <ul v-for="(element) in films" :key="element.id" class="mx-2 p-2">
             <li>
                 <h6 class="bg-danger p-1">film</h6>
             </li>
@@ -30,9 +43,10 @@
                     <font-awesome-icon icon="fa-solid fa-star"  :class="{active: (newVoteRange(element.vote_average) > 2)}"/>
                     <font-awesome-icon icon="fa-solid fa-star"  :class="{active: (newVoteRange(element.vote_average) > 3)}"/>
                     <font-awesome-icon icon="fa-solid fa-star"  :class="{active: (newVoteRange(element.vote_average) > 4)}"/>
+                    
                 </div>
             </li>
-        </ul>
+        </ul> -->
         
     </div>
 </template>
@@ -47,7 +61,7 @@ export default {
     },
     data: function(){
         return{
-            
+            counterArray:[0,1,2,3,4]
         }
     },
     created: function(){
@@ -58,9 +72,8 @@ export default {
     methods:{
         newVoteRange(star){
             return Math.ceil(star / 2)
-            
-            
         },
+        
 
         
         
@@ -70,8 +83,12 @@ export default {
 
 <style lang="scss" scoped>
 div{
-    
-    ul{
+    div.my-card{
+        border: 2px solid black;
+        list-style-type: none;
+        width: calc(100% / 5 - 1rem);
+    }
+    /* ul{
             border: 2px solid black;
             list-style-type: none;
             width: calc(100% / 5 - 1rem);
@@ -89,6 +106,6 @@ div{
         }
         .active{
             color: #ffbd00;
-        }
+        } */
 }
 </style>
