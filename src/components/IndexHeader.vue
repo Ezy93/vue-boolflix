@@ -30,8 +30,10 @@ export default {
     },
     methods:{
         stringModifier(){
-            console.log(this.searchedString.split(" "))
-            this.queryString =  this.searchedString.split(" ").join("+")
+            if(this.searchedString === null){
+                this.searchedString = "into the void"
+            }
+            this.queryString =  this.searchedString.trim().split(" ").join("+")
             console.log(this.queryString)
             
             this.$emit('search', this.queryString)

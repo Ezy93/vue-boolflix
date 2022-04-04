@@ -18,8 +18,20 @@
             <li>
                 Lingua: <img class="my-flag" :src="`https://www.unknown.nu/flags/images/${element.original_language}-100`" :alt="`${element.original_language}`">
             </li>
-            <li>
-                voto: {{newVoteRange(element.vote_average)}}
+            <li class="d-flex align-items-center">
+                <div v-if="(newVoteRange(element.vote_average) < 0)">
+                    {{newVoteRange(element.vote_average)}} 
+                </div>
+                <div v-if="(newVoteRange(element.vote_average) >= 0)">
+                    vote:
+                </div>
+                <div class="ms-1">
+                    <font-awesome-icon icon="fa-solid fa-star"  :class="{active: (newVoteRange(element.vote_average) > 0)}"/>
+                    <font-awesome-icon icon="fa-solid fa-star"  :class="{active: (newVoteRange(element.vote_average) > 1)}"/>
+                    <font-awesome-icon icon="fa-solid fa-star"  :class="{active: (newVoteRange(element.vote_average) > 2)}"/>
+                    <font-awesome-icon icon="fa-solid fa-star"  :class="{active: (newVoteRange(element.vote_average) > 3)}"/>
+                    <font-awesome-icon icon="fa-solid fa-star"  :class="{active: (newVoteRange(element.vote_average) > 4)}"/>
+                </div>
             </li>
         </ul>
     </div>
@@ -66,6 +78,9 @@ div{
                     width: 100%;
                 }
             }
+            .active{
+            color: #ffbd00;
+        }
         }
 }
 </style>
