@@ -23,8 +23,9 @@ export default {
   },
   data: function(){
     return{
-      matchedFilms:null,
-      matchedSeries:null,
+      /* ricordarsi che facendo cosi appena si apre la pagina dice subito che la ricerca non ha prodotto risultati e se la metto a null mi da un errore */
+      matchedFilms:[],
+      matchedSeries:[],
     }
   },
   methods:{

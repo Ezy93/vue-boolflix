@@ -1,18 +1,42 @@
 <template>
     <header>
-        <div class="row">
-            <div class="col-12 d-flex">
-                <div>
-                    <input type="text" v-model="searchedString" @keyup.enter="stringModifier">
-                </div>
-                
-                <div>
-                    <div class="btn btn-primary" @click="stringModifier">
-                        cerca
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png" alt="netflix logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Serie TV</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Film</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Originali</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Aggiunti di recente</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">La mia lista</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" v-model="searchedString" @keyup.enter="stringModifier">
+                        <button class="btn " type="submit" @click="stringModifier">Search</button>
                     </div>
                 </div>
             </div>
-        </div>
+        </nav>
+
     </header>
 </template>
 
@@ -52,8 +76,14 @@ export default {
 
 <style lang="scss" scoped>
 /* stilizzazione di prova da eliminare */
-    div.prova{
-        height: 100px;
-        width: 200px;
+    a.navbar-brand{
+        img{
+            width: 10rem;
+        }
+    }
+    
+    button.btn{
+        color: white;
+        border: 2px solid white;
     }
 </style>
