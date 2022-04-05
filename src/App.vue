@@ -5,6 +5,7 @@
     :filmsArray ="matchedFilms"
     :seriesArray="matchedSeries"
     
+    
     />
   </div>
 </template>

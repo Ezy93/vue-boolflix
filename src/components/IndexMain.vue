@@ -10,7 +10,7 @@
         />
         
         <div class="container">
-            <div class="mx-2">
+            <div class="mx-2 text-white">
                 {{zeroResults()}}
             </div>
         </div>
@@ -30,25 +30,18 @@ export default {
     props: {
         'filmsArray': Array,
         'seriesArray': Array,
+        
     },
     data: function(){
         return{
-            
+            alerts: "",
         }
     },
     created: function(){
         
     },
     methods:{
-        zeroResults(){
-            if(this.seriesArray.length === 0 && this.filmsArray.length === 0 ){
-                return "la tua ricerca non ha prodotto risultati ne tra le serie tv ne tra i films"
-            }else if(this.filmsArray.length === 0){
-                return "la tua ricerca non ha prodotto risultati tra i films"
-            }else if(this.seriesArray.length === 0){
-                return "la tua ricerca non ha prodotto risultati tra le serie tv"
-            }
-        }
+        
     },
 }
 
