@@ -4,7 +4,7 @@
         <div v-for="(element) in series" :key="element.id" class="my-card mx-2 mb-2 position-relative">
             <img class="my-poster h-100 w-100 " v-if="(element.poster_path !== null)" :src="`https://image.tmdb.org/t/p/w342${element.poster_path}`" :alt="element.title">
             
-            <div class="my-description px-2 py-5 position-relative text-white h-100 bg-dark">
+            <div class="my-description px-2 py-5 position-relative text-white h-100 bg-black">
                 <div>
                     Titolo: {{element.name}}
                 </div>
@@ -37,6 +37,7 @@
 </template>
 
 <script>
+import '../scss/style.scss'
 export default {
     name: "MainCard",
     props: {
@@ -60,47 +61,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-div{
-    div.my-card{
-        border: 2px solid black;
-        list-style-type: none;
-        width: calc(100% / 5 - 1rem);
-        height: 23rem;
 
-        img.my-poster{
-            position: absolute;
-            object-fit: cover;
-            height: 100%;
-            z-index: 1;
-        }
-        img.my-poster:hover{
-            z-index: 0;
-        }
-        div.my-description:hover{
-            z-index: 1;
-        }
-
-
-        div.my-description{
-            
-            div.mt-1{
-                scrollbar-width: none;
-                overflow-y: auto;
-                height: 10rem;
-            }
-        }
-
-        
-        
-        
-        img.my-flag{
-            width: 24px;
-            height: 24px;
-            object-fit: contain;
-        }
-    }
-        .active{
-            color: #ffbd00;
-        }
-}
 </style>

@@ -55,17 +55,7 @@ export default {
 
       
     },
-    /* searchSeries(queryString){
-      const self=this
-      axios
-      .get(`https://api.themoviedb.org/3/search/tv?api_key=276a8d5ac6ab05e1c8488deebdcb905d&language=it_IT&query=${queryString}`)
-      
-      .then(function (response){
-        const result = response.data.results;
-        self.matchedSeries = result;
-        console.warn(self.matchedSeries)
-      })
-    } */
+    
   },
 }
 </script>
