@@ -1,7 +1,7 @@
 <template>
     <div class="d-flex flex-wrap container">
 
-        <div v-for="(element) in films" :key="element.id" class="my-card mx-2 mb-2 position-relative">
+        <div v-for="(element) in films" :key="element.id" class="my-card mx-2 mb-2 position-relative flex-shrink-0">
             <img class="my-poster h-100 w-100" v-if="(element.poster_path !== null)" :src="`https://image.tmdb.org/t/p/w342${element.poster_path}`" :alt="element.title">
             
             <div class="my-description px-2 py-5 position-relative text-white h-100 bg-black">
@@ -27,7 +27,7 @@
                     </div>
             
                 </div>
-                <div class="mt-1">
+                <div class="mt-1 pb-2">
                     <span class="fw-bold">Overview:</span> {{element.overview}}
                 </div>
             </div>

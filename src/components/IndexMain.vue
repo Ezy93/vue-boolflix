@@ -1,5 +1,5 @@
 <template>
-    <main class="d-flex flex-wrap pt-3 bg-dark">
+    <main class="d-flex flex-wrap flex-column pt-3 bg-dark">
         <FilmsCard
         :films ="filmsArray"
         :series ="seriesArray"
@@ -9,11 +9,7 @@
         :series ="seriesArray"
         />
         
-        <div class="container">
-            <div class="mx-2 text-white">
-                {{zeroResults()}}
-            </div>
-        </div>
+        
     </main>
 </template>
 
@@ -34,7 +30,7 @@ export default {
     },
     data: function(){
         return{
-            alerts: "",
+            
         }
     },
     created: function(){

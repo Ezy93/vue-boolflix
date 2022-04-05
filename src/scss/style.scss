@@ -1,9 +1,13 @@
 @import 'bootstrap/dist/css/bootstrap.css';
-
+div.container{
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: thin;
+}
 div.my-card{
     border: 2px solid black;
     list-style-type: none;
-    width: calc(100% / 5 - 1rem);
+    width: 15rem;
     height: 23rem;
 
     img.my-poster{
