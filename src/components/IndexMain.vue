@@ -1,5 +1,5 @@
 <template>
-    <main class="d-flex flex-wrap pt-3">
+    <main class="d-flex flex-wrap pt-3 bg-dark">
         <FilmsCard
         :films ="filmsArray"
         :series ="seriesArray"
@@ -55,7 +55,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    main{
-        height: calc(100vh - 10rem);
-    }
+    
 </style>
